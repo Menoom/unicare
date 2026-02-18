@@ -1,240 +1,494 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>UniCare — Appointments & Consultations</title>
-
-	<!-- Bootstrap 3 -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<!-- Icons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<!-- Font -->
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-	@vite(['resources/css/app.css'])
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UniCare — Modern Healthcare, Simplified</title>
+    <meta name="description" content="UniCare — Book appointments, access specialists, and manage your health records. Modern healthcare, simplified.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    @vite(['resources/css/welcome-blade.css'])
 </head>
 <body>
-	<!-- Navbar -->
-	<nav class="navbar navbar-default navbar-static-top">
-	<div class="container-fluid pad-lr-30">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNav">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">
-					<i class="fa-solid fa-stethoscope"></i> UniCare
-				</a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="nav navbar-nav navbar-center">
-					<li><a href="#home">Home</a></li>
-					<li><a href="#services">Services</a></li>
-					<li><a href="#about">About Us</a></li>
-					<li><a href="#contact">Contact Us</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right-custom">
-					<li>
-						<a href="/login" class="btn btn-book navbar-btn">Book Appointment</a>
-					</li>
-					<li>
-						<button id="themeToggle" class="btn toggle-btn" title="Toggle dark mode">
-							<i class="fa-regular fa-moon"></i>
-						</button>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
 
-	<!-- Hero (full-width, attached to navbar) -->
-	<section id="home" class="hero">
-		<div class="container-fluid no-hpad">
-			<div class="row no-hmargin">
-				<div class="col-md-8 col-sm-12 col-pad-30">
-					<span class="badge-custom">Appointments & Consultations</span>
-					<h1 class="hero-title">Care made simple.<br>Appointments made fast.</h1>
-					<p class="hero-sub">Find the right doctor, pick a convenient time, and manage your visits with ease — all in one place.</p>
-					<div>
-						<a href="/login" class="btn btn-primary-custom">Book Appointment</a>
-						<a href="/register" class="btn btn-outline-custom">Create Account</a>
-					</div>
-					<p class="hero-note">Booking requires login. New here? Sign up first.</p>
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- Background mesh -->
+    <div class="bg-mesh">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
-	<!-- Services -->
-	<section id="services" class="section">
-	<div class="container-fluid pad-lr-30">
-			<h2 class="section-title">Our Services</h2>
-			<p class="text-muted mb-60 section-subtitle">Simple tools to access quality care when you need it.</p>
-			<div class="row services-row">
-				<div class="col-md-3 col-sm-6 card-col">
-					<div class="card-lite">
-						<i class="fa-solid fa-calendar-check text-primary icon-xl"></i>
-						<h5>Appointment Booking</h5>
-						<p>Find doctors, pick a slot, and confirm in seconds.</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 card-col">
-					<div class="card-lite">
-						<i class="fa-solid fa-user-doctor text-primary icon-xl"></i>
-						<h5>Consultations</h5>
-						<p>In-person or virtual consultations with specialists.</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 card-col">
-					<div class="card-lite">
-						<i class="fa-solid fa-file-medical text-primary icon-xl"></i>
-						<h5>Records</h5>
-						<p>Manage prescriptions and visit history securely.</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 card-col">
-					<div class="card-lite">
-						<i class="fa-solid fa-clock text-primary icon-xl"></i>
-						<h5>Time Slots</h5>
-						<p>Real-time availability for faster scheduling.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- ==================
+         NAVBAR
+         ================== -->
+    <nav class="navbar" id="navbar">
+        <a href="/" class="nav-brand">
+            <i class="fa-solid fa-stethoscope"></i> UniCare
+        </a>
 
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-	<!-- About -->
-	<section id="about" class="section section-about">
-	<div class="container-fluid">
-			<div class="row">
-				<!-- Adjust left spacer column width -->
-				<div class="col-md-4 col-sm-12"></div>
-				<div class="col-md-8 col-sm-12">
-					<h2 class="section-title">About UniCare</h2>
-					<p class="text-muted lead-copy" style="font-size: 1.2rem;">UniCare is designed to make healthcare access simple, fast, and reliable. We focus on creating a modern experience for patients and providersfrom discovering the right specialists to booking convenient appointments and managing records securely. Whether you're scheduling an in-person visit or a virtual consultation, UniCare helps minimize friction and ensures you spend less time navigating systems and more time getting care.</p>
-					<div class="about-cards">
-						<div class="row">
-						<div class="col-sm-6">
-							<div class="info-card">
-								<i class="fa-solid fa-check"></i>
-								<div>
-									<div class="title">Minimal, sleek interface</div>
-									<div class="desc">Clean layouts and readable typography for effortless use.</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="info-card">
-								<i class="fa-solid fa-clock"></i>
-								<div>
-									<div class="title">Doctor availability & slots</div>
-									<div class="desc">Real-time schedules to find the time that works for you.</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="info-card">
-								<i class="fa-solid fa-shield-halved"></i>
-								<div>
-									<div class="title">Secure records</div>
-									<div class="desc">Encrypted and private by default for your peace of mind.</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="info-card">
-								<i class="fa-solid fa-user-plus"></i>
-								<div>
-									<div class="title">Easy login & onboarding</div>
-									<div class="desc">Fast registration and intuitive flows to get started quickly.</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+        <div class="nav-actions">
+            <a href="/login" class="btn-signin">
+                <i class="fa-solid fa-right-to-bracket"></i> Sign In
+            </a>
+            <button class="nav-hamburger" id="navHamburger">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-	<!-- Contact -->
-	<section id="contact" class="section">
-		<div class="container">
-			<h2 class="section-title">Contact Us</h2>
-			<div class="row">
-				<div class="col-md-6 col-sm-12 mb-20">
-					<div class="card-lite">
-						<h5>Get in touch</h5>
-						<p class="contact-intro">Have questions about appointments or consultations? Reach out and we'll help.</p>
-						<div class="contact-line">
-							<i class="fa-solid fa-phone text-primary"></i>
-							<span class="text-muted contact-text">+1 (555) 010-0101</span>
-						</div>
-						<div class="contact-line">
-							<i class="fa-solid fa-envelope text-primary"></i>
-							<span class="text-muted contact-text">support@unicare.example</span>
-						</div>
-						<div class="contact-line">
-							<i class="fa-solid fa-location-dot text-primary"></i>
-							<span class="text-muted contact-text">123 Health Blvd, Wellness City</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-12">
-					<div class="card-lite">
-						<form onsubmit="event.preventDefault(); alert('Message sent!');">
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label for="name">Name</label>
-										<input type="text" class="form-control" id="name" placeholder="Your name">
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label for="email">Email</label>
-										<input type="email" class="form-control" id="email" placeholder="you@example.com">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="message">Message</label>
-								<textarea class="form-control" id="message" rows="4" placeholder="Type your message..."></textarea>
-							</div>
-							<button type="submit" class="btn btn-primary-custom">Send</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="close-nav" id="closeMobileNav"><i class="fa-solid fa-xmark"></i></button>
+        <a href="#home" onclick="closeMobileMenu()">Home</a>
+        <a href="#services" onclick="closeMobileMenu()">Services</a>
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        <a href="/login" class="btn-signin" style="margin-top:10px;">
+            <i class="fa-solid fa-right-to-bracket"></i> Sign In
+        </a>
+    </div>
 
-	<!-- Footer -->
-	<footer class="footer">
-		<div class="container text-center">
-			<p class="text-muted footer-note">© {{ date('Y') }} UniCare. All rights reserved.</p>
-		</div>
-	</footer>
+    <!-- ==================
+         HERO
+         ================== -->
+    <section id="home" class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-circle"></i>
+                    Modern Healthcare Platform
+                </div>
+                <h1 class="hero-title">
+                    Healthcare<br>
+                    <span class="gradient-text">Made Simple.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Find the right specialist, book appointments instantly, and manage your entire health journey — all in one seamless platform.
+                </p>
+                <div class="hero-ctas">
+                    <a href="/login" class="btn-primary">
+                        Book Appointment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="/register" class="btn-outline">
+                        Create Account
+                    </a>
+                </div>
 
-	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script>
-		(function() {
-			var theme = localStorage.getItem('theme') || 'light';
-			document.documentElement.setAttribute('data-theme', theme);
-			var btn = document.getElementById('themeToggle');
-			if (btn) {
-				btn.addEventListener('click', function() {
-					var current = document.documentElement.getAttribute('data-theme');
-					var next = current === 'dark' ? 'light' : 'dark';
-					document.documentElement.setAttribute('data-theme', next);
-					localStorage.setItem('theme', next);
-					this.innerHTML = next === 'dark' ? '<i class="fa-regular fa-sun"></i>' : '<i class="fa-regular fa-moon"></i>';
-				});
-			}
-		})();
-	</script>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="value">200+</div>
+                        <div class="label">Verified Doctors</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="value">50K+</div>
+                        <div class="label">Patients Served</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="value">4.9</div>
+                        <div class="label">User Rating</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Interactive Scene -->
+            <div class="hero-3d" id="hero3d">
+                <div class="scene-3d" id="scene3d">
+
+                    <!-- DNA helix nodes (generated by JS) -->
+                    <div class="dna-strand" id="dnaStrand"></div>
+
+                    <!-- Central heart vitals card -->
+                    <div class="float-card card-heart">
+                        <div class="heart-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div class="pulse-label">Heart Rate</div>
+                        <div class="pulse-value" id="heartRate">72</div>
+                        <div class="pulse-bpm">BPM · Normal</div>
+                    </div>
+
+                    <!-- Top-right stats card -->
+                    <div class="float-card card-stats">
+                        <div class="stat-row">
+                            <div class="stat-icon si-1"><i class="fa-solid fa-droplet"></i></div>
+                            <div class="stat-meta">
+                                <div class="sv">120/80</div>
+                                <div class="sl">Blood Pressure</div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-icon si-2"><i class="fa-solid fa-temperature-half"></i></div>
+                            <div class="stat-meta">
+                                <div class="sv">98.6°F</div>
+                                <div class="sl">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-icon si-3"><i class="fa-solid fa-lungs"></i></div>
+                            <div class="stat-meta">
+                                <div class="sv">98%</div>
+                                <div class="sl">SpO2 Level</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom-left doc card -->
+                    <div class="float-card card-doc">
+                        <div class="doc-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+                        <div>
+                            <div class="doc-name">Dr. Sarah M.</div>
+                            <div class="doc-spec">Cardiologist</div>
+                            <div class="doc-avail"><i class="fa-solid fa-circle"></i> Available Now</div>
+                        </div>
+                    </div>
+
+                    <!-- Top-left appointment card -->
+                    <div class="float-card card-appt">
+                        <div class="appt-head">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Next Appt.</span>
+                        </div>
+                        <div class="appt-time">10:00 AM</div>
+                        <div class="appt-doc">Dr. Rahul Verma</div>
+                        <div class="appt-badge">Confirmed</div>
+                    </div>
+
+                    <!-- Molecule orbit -->
+                    <div class="float-card card-molecule">
+                        <svg class="molecule-svg" width="60" height="60" viewBox="0 0 60 60">
+                            <circle cx="30" cy="10" r="5" fill="rgba(0,180,216,.6)" />
+                            <circle cx="50" cy="40" r="4" fill="rgba(167,139,250,.6)" />
+                            <circle cx="10" cy="40" r="4" fill="rgba(34,197,94,.6)" />
+                            <circle cx="30" cy="30" r="6" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+                            <line x1="30" y1="10" x2="30" y2="30" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+                            <line x1="50" y1="40" x2="30" y2="30" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+                            <line x1="10" y1="40" x2="30" y2="30" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+                        </svg>
+                    </div>
+
+                    <!-- Floating icons -->
+                    <div class="float-icon"><i class="fa-solid fa-syringe"></i></div>
+                    <div class="float-icon"><i class="fa-solid fa-pills"></i></div>
+                    <div class="float-icon"><i class="fa-solid fa-dna"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================
+         SERVICES
+         ================== -->
+    <section id="services" class="section">
+        <div style="max-width: 1360px; margin: 0 auto;">
+            <div class="section-label"><i class="fa-solid fa-sparkles"></i> What We Offer</div>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Simple, powerful tools to access quality healthcare when you need it most.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon si-cyan"><i class="fa-solid fa-calendar-check"></i></div>
+                <h3>Appointment Booking</h3>
+                <p>Browse specialists, select a convenient time slot, and confirm your appointment — all in seconds.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-purple"><i class="fa-solid fa-user-doctor"></i></div>
+                <h3>Expert Consultations</h3>
+                <p>Connect with verified specialists through in-person visits or virtual video consultations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-green"><i class="fa-solid fa-file-medical"></i></div>
+                <h3>Secure Records</h3>
+                <p>Access prescriptions, lab results, and visit history — all encrypted and stored securely.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-amber"><i class="fa-solid fa-clock"></i></div>
+                <h3>Real-Time Availability</h3>
+                <p>See live doctor schedules and available time slots for faster, smarter scheduling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================
+         ABOUT
+         ================== -->
+    <section id="about" class="section">
+        <div class="about-section">
+            <div style="margin-bottom: 10px;">
+                <div class="section-label"><i class="fa-solid fa-heart-pulse"></i> About UniCare</div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title">Transforming Healthcare Access</h2>
+                    <p>
+                        UniCare is designed to make healthcare access simple, fast, and reliable. We focus on creating a modern experience for patients and providers — from discovering the right specialists to booking convenient appointments and managing records securely. Whether you're scheduling an in-person visit or a virtual consultation, UniCare minimizes friction so you can focus on what matters: getting care.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="af-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <div>
+                                <div class="af-title">Intuitive Interface</div>
+                                <div class="af-desc">Clean, readable layouts for effortless navigation.</div>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="af-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <div class="af-title">Real-Time Slots</div>
+                                <div class="af-desc">Doctor availability updated live for you.</div>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="af-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <div class="af-title">End-to-End Security</div>
+                                <div class="af-desc">Encrypted records, private by default.</div>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="af-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <div>
+                                <div class="af-title">Fast Onboarding</div>
+                                <div class="af-desc">Sign up and book in under a minute.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D about visual -->
+                <div class="about-visual" id="aboutVisual">
+                    <div class="about-3d-card acard-1" id="acard1">
+                        <div class="acard-row">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <span>Specialists: <strong>200+</strong></span>
+                        </div>
+                        <div class="acard-row">
+                            <i class="fa-solid fa-hospital"></i>
+                            <span>Hospitals: <strong>45</strong></span>
+                        </div>
+                        <div class="acard-row">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>Cities: <strong>12</strong></span>
+                        </div>
+                        <div class="acard-row">
+                            <i class="fa-solid fa-star"></i>
+                            <span>Rating: <strong>4.9 / 5</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="about-3d-card acard-2" id="acard2">
+                        <div class="ring">
+                            <span class="pct">98%</span>
+                        </div>
+                        <div class="ring-label">Patient Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================
+         CONTACT
+         ================== -->
+    <section id="contact" class="section">
+        <div style="max-width: 1100px; margin: 0 auto; margin-bottom: 40px;">
+            <div class="section-label"><i class="fa-solid fa-envelope"></i> Get In Touch</div>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Have questions about appointments or consultations? We're here to help.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info-card">
+                <h3>Reach out to us</h3>
+                <p>Our team is available to answer your questions and help you navigate the platform.</p>
+                <div class="contact-line">
+                    <div class="cl-icon"><i class="fa-solid fa-phone"></i></div>
+                    <span class="cl-text">+1 (555) 010-0101</span>
+                </div>
+                <div class="contact-line">
+                    <div class="cl-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <span class="cl-text">support@unicare.example</span>
+                </div>
+                <div class="contact-line">
+                    <div class="cl-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <span class="cl-text">123 Health Blvd, Wellness City</span>
+                </div>
+            </div>
+            <div class="contact-form-card">
+                <form onsubmit="event.preventDefault(); this.querySelector('.btn-send').textContent='Sent ✓'; setTimeout(()=>{this.reset();this.querySelector('.btn-send').innerHTML='Send Message <i class=\'fa-solid fa-paper-plane\'></i>';},2000);">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" class="form-input" id="contactName" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" class="form-input" id="contactEmail" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Message</label>
+                        <textarea class="form-textarea" id="contactMessage" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-send">
+                        Send Message <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================
+         FOOTER
+         ================== -->
+    <footer class="footer">
+        <p>© {{ date('Y') }} UniCare. All rights reserved.</p>
+    </footer>
+
+    <!-- ==================
+         SCRIPTS
+         ================== -->
+    <script>
+    (function() {
+        // ===== Navbar scroll effect =====
+        var navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // ===== Mobile nav =====
+        var mobileNav = document.getElementById('mobileNav');
+        document.getElementById('navHamburger').addEventListener('click', function() {
+            mobileNav.classList.add('open');
+        });
+        document.getElementById('closeMobileNav').addEventListener('click', function() {
+            mobileNav.classList.remove('open');
+        });
+        window.closeMobileMenu = function() {
+            mobileNav.classList.remove('open');
+        };
+
+        // ===== 3D Hero parallax on mouse move =====
+        var hero3d = document.getElementById('hero3d');
+        var scene3d = document.getElementById('scene3d');
+
+        if (hero3d && scene3d) {
+            hero3d.addEventListener('mousemove', function(e) {
+                var rect = hero3d.getBoundingClientRect();
+                var cx = rect.left + rect.width / 2;
+                var cy = rect.top + rect.height / 2;
+                var dx = (e.clientX - cx) / rect.width;
+                var dy = (e.clientY - cy) / rect.height;
+
+                var rotY = dx * 18;
+                var rotX = -dy * 12;
+
+                scene3d.style.transform = 'rotateY(' + rotY + 'deg) rotateX(' + rotX + 'deg)';
+            });
+
+            hero3d.addEventListener('mouseleave', function() {
+                scene3d.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        }
+
+        // ===== 3D About cards parallax =====
+        var aboutVisual = document.getElementById('aboutVisual');
+        var acard1 = document.getElementById('acard1');
+        var acard2 = document.getElementById('acard2');
+
+        if (aboutVisual && acard1 && acard2) {
+            aboutVisual.addEventListener('mousemove', function(e) {
+                var rect = aboutVisual.getBoundingClientRect();
+                var dx = (e.clientX - rect.left) / rect.width - 0.5;
+                var dy = (e.clientY - rect.top) / rect.height - 0.5;
+
+                acard1.style.transform = 'rotateY(' + (8 + dx * 15) + 'deg) rotateX(' + (-3 + dy * -10) + 'deg) translateZ(30px)';
+                acard2.style.transform = 'rotateY(' + (-5 + dx * 10) + 'deg) rotateX(' + (4 + dy * -8) + 'deg) translateZ(20px)';
+            });
+
+            aboutVisual.addEventListener('mouseleave', function() {
+                acard1.style.transform = 'rotateY(8deg) rotateX(-3deg) translateZ(30px)';
+                acard2.style.transform = 'rotateY(-5deg) rotateX(4deg) translateZ(20px)';
+            });
+        }
+
+        // ===== Generate DNA helix nodes =====
+        var dna = document.getElementById('dnaStrand');
+        if (dna) {
+            var count = 12;
+            for (var i = 0; i < count; i++) {
+                var angle = (i / count) * Math.PI * 2;
+                var radius = 140;
+                var x = Math.cos(angle) * radius + 160;
+                var y = (i / count) * 300 + 10;
+
+                // Node A
+                var nodeA = document.createElement('div');
+                nodeA.className = 'dna-node cyan';
+                nodeA.style.left = x + 'px';
+                nodeA.style.top = y + 'px';
+                nodeA.style.animationDelay = (i * 0.25) + 's';
+                dna.appendChild(nodeA);
+
+                // Node B (opposite side)
+                var x2 = Math.cos(angle + Math.PI) * radius + 160;
+                var nodeB = document.createElement('div');
+                nodeB.className = 'dna-node purple';
+                nodeB.style.left = x2 + 'px';
+                nodeB.style.top = y + 'px';
+                nodeB.style.animationDelay = (i * 0.25 + 0.5) + 's';
+                dna.appendChild(nodeB);
+
+                // Connector
+                var connector = document.createElement('div');
+                connector.className = 'dna-connector';
+                var cLen = Math.abs(x2 - x);
+                var cLeft = Math.min(x, x2) + 5;
+                connector.style.left = cLeft + 'px';
+                connector.style.top = (y + 4) + 'px';
+                connector.style.width = cLen + 'px';
+                dna.appendChild(connector);
+            }
+        }
+
+        // ===== Animate heart rate =====
+        var hrEl = document.getElementById('heartRate');
+        if (hrEl) {
+            setInterval(function() {
+                hrEl.textContent = 68 + Math.floor(Math.random() * 10);
+            }, 2000);
+        }
+
+        // ===== Intersection Observer for fade-in =====
+        var sections = document.querySelectorAll('.service-card, .about-feature, .contact-info-card, .contact-form-card');
+        sections.forEach(function(sec) {
+            sec.style.opacity = '0';
+            sec.style.transform = 'translateY(30px)';
+            sec.style.transition = 'opacity .6s ease, transform .6s ease';
+        });
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        sections.forEach(function(sec) { observer.observe(sec); });
+
+    })();
+    </script>
+
 </body>
 </html>
