@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/css/welcome-blade.css',
                 'resources/css/dashboard-blade.css',
                 'resources/css/doctor-dashboard-blade.css',
+                'resources/css/admin-dashboard-blade.css',
                 'resources/css/auth-login-blade.css',
                 'resources/css/auth-register-blade.css',
                 'resources/css/custom.css',
